@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+	    <style>
+	        #container{
+	            display:flex;
+	            flex-direction:column;
+	            align-items:center;
+	        }
+	    </style>
+	    
+	</head>
+
+	<body>
+	<div id = container>
+	    <button  id = change-background>Change Background Color</button>
+	</div>
+		
+		<script>
+            let background = document.getElementById("container");
+            let changeBackgroundBtn = document.getElementById("change-background");
+
+            function changeBackground() {
+                if(!localStorage.color) {
+                    let color = "white";
+                    localStorage.setItem("color", color);
+                }
+
+                let newColor = prompt("What color do you want to change the background to?");
+
+                background.setAttribute("style", "background-color: " + newColor + ";");
+
+                localStorage.color = newColor;
+            }
+
+            changeBackgroundBtn.addEventListener("click", changeBackground);
+		</script>
+	</body>
+</html>
